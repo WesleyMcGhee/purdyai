@@ -49,6 +49,12 @@ export function InterviewChat({ onComplete, llmConfig }: InterviewChatProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
+  useEffect(() => {
+    if (!isLoading && !isComplete) {
+      inputRef.current?.focus()
+    }
+  }, [messages, isLoading, isComplete])
+
   const handleSend = async () => {
     if (!input.trim() || isLoading) return
 
