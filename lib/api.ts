@@ -153,15 +153,15 @@ function getMockResponse(messages: Message[]): string {
   const lastUserMessage = [...messages].reverse().find((m) => m.role === "user")
 
   if (!lastUserMessage) {
-    return "Tell me more about what you're building."
+    return "Tell me about your procrastination style. Are we talking 'I'll do it tomorrow' or 'I'll do it at 11:59 PM'?"
   }
 
   const responses = [
-    "That's interesting! Can you tell me more about who would be using this?",
-    "Great detail! What timeline are you working with?",
-    "I see. Are there any specific technical requirements we should consider?",
-    "Thanks for sharing that. Let's talk about your target users.",
-    "That's helpful context. What does success look like for this project?",
+    "Very relatable. What are you procrastinating on right now? Be honest.",
+    "We get it. Tell me more about how you like to avoid your responsibilities.",
+    "No judgment here. What's your go-to distraction method?",
+    "Classic. How do you feel about turning your procrastination into a feature?",
+    "The most productive thing you'll do today is tell us what you should be doing instead.",
   ]
 
   return responses[Math.floor(Math.random() * responses.length)]
@@ -177,28 +177,40 @@ function generateMockPRD(
     projectId,
     name: prdName,
     interview,
-    executiveSummary: `This document outlines the requirements for "${prdName}". Based on our discovery interview, the solution addresses key user needs while maintaining high standards for performance and reliability.`,
+    executiveSummary: `ProcrastiDo is the world's first "productive procrastination" platform. While you meant to work on your actual tasks, you'll be organizing your procrastination into beautifully optimized avoidance strategies. Features include task decoration, guilt-free distraction sessions, and AI-powered excuse generation. Remember: the best time to start was yesterday. The second best time is... never. That's the feature.`,
     userStories: [
       {
         id: "1",
-        asA: "new user",
-        iWant: "to quickly understand and use the product",
-        soThat: "I can accomplish my goals without friction",
+        asA: "chronic procrastinator",
+        iWant: "to organize my avoidance activities",
+        soThat:
+          "I can procrastinate with a clear conscience and beautiful structure",
         acceptanceCriteria: [
-          "Onboarding completes in under 5 minutes",
-          "Core features are discoverable",
-          "Error messages are helpful and actionable",
+          "I can create and categorize 'Things I'm Avoiding'",
+          "I receive satisfying notifications about what I should be doing instead",
+          "The app makes me feel guilty in a aesthetically pleasing way",
         ],
       },
       {
         id: "2",
-        asA: "returning user",
-        iWant: "to efficiently complete my regular tasks",
-        soThat: "I can save time and be productive",
+        asA: "perfectionist",
+        iWant: "to delay starting anything until conditions are perfect",
+        soThat: "I can blame external factors when nothing gets done",
         acceptanceCriteria: [
-          "Common actions require minimal clicks",
-          "Data persists across sessions",
-          "Shortcuts are available for power users",
+          "The app waits for me to be 'ready' before logging any progress",
+          "I can create elaborate setup rituals that count as productivity",
+          "There's always a valid reason not to start",
+        ],
+      },
+      {
+        id: "3",
+        asA: "remote worker",
+        iWant: "to look busy while actually watching YouTube",
+        soThat: "I can maintain plausible deniability during meetings",
+        acceptanceCriteria: [
+          "The app has a 'Deep Work' mode that just shows a fake timer",
+          "I can customize my 'away' status to show 'In a Meeting' when I'm actually napping",
+          "Keyboard sounds play automatically to sound productive",
         ],
       },
     ],
@@ -207,54 +219,94 @@ function generateMockPRD(
         id: "1",
         category: "Core Features",
         description:
-          "User authentication with email/password and social login options",
+          "Task decoration: Make your to-do list so pretty you forget it's empty",
         priority: "must-have",
       },
       {
         id: "2",
         category: "Core Features",
-        description: "Dashboard with key metrics and quick actions",
+        description:
+          "Guilt-free break timer: Set it for 5 minutes, automatically extends to 2 hours",
         priority: "must-have",
       },
       {
         id: "3",
-        category: "Data Management",
-        description: "CRUD operations for primary entities",
+        category: "Core Features",
+        description:
+          "AI Excuse Generator: Automatically generate plausible reasons for missed deadlines",
         priority: "must-have",
+      },
+      {
+        id: "4",
+        category: "Core Features",
+        description:
+          "'I'll start Monday' scheduling with automatic Monday-to-Monday rollover",
+        priority: "should-have",
+      },
+      {
+        id: "5",
+        category: "Analytics",
+        description:
+          "Productivity theater metrics: Show how busy you look, not what you've done",
+        priority: "could-have",
       },
     ],
     nonFunctionalRequirements: [
       {
         id: "1",
         category: "Performance",
-        description: "Page load time under 2 seconds on 3G networks",
+        description:
+          "App must load instantly so you can open it instead of doing real work",
         priority: "must-have",
       },
       {
         id: "2",
-        category: "Security",
-        description: "All data encrypted in transit and at rest",
-        priority: "must-have",
+        category: "Availability",
+        description:
+          "System must be down exactly when you need to submit something",
+        priority: "won't-have",
       },
       {
         id: "3",
-        category: "Accessibility",
-        description: "WCAG 2.1 AA compliance",
+        category: "Security",
+        description:
+          "All your avoided tasks are encrypted so no one knows you're behind",
         priority: "should-have",
+      },
+      {
+        id: "4",
+        category: "Scalability",
+        description:
+          "Must support unlimited tabs of 'research' that isn't research",
+        priority: "must-have",
       },
     ],
     successMetrics: [
       {
         id: "1",
-        name: "User Activation Rate",
-        target: "40% of signups complete key action within first session",
-        measurement: "Ratio of users who complete onboarding vs total signups",
+        name: "Tasks Procrastinated",
+        target: "Track every task you've moved to 'next week' at least 5 times",
+        measurement: "Count of tasks with status = 'Ehh, maybe later'",
       },
       {
         id: "2",
-        name: "Session Duration",
-        target: "Average session increases 25% after feature discovery",
-        measurement: "Google Analytics session duration metric",
+        name: "Productivity Theater Score",
+        target:
+          "Higher score for more time spent looking at the app without doing anything",
+        measurement: "Ratio of app-open time to actual task completion",
+      },
+      {
+        id: "3",
+        name: "Monday Starts Avoided",
+        target:
+          "Track how many times you've said 'I'll start Monday' without doing it",
+        measurement: "Self-reported survey with optional emoji responses",
+      },
+      {
+        id: "4",
+        name: "Guilt Conversion Rate",
+        target: "100% of users feel slightly bad but continue using anyway",
+        measurement: "Retention rate",
       },
     ],
     createdAt: new Date(),
