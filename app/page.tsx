@@ -14,7 +14,6 @@ import { Separator } from "@/components/ui/separator"
 import {
   Plus,
   FileText,
-  Sparkles,
   ChevronLeft,
   Loader2,
   FolderOpen,
@@ -326,9 +325,7 @@ export default function Home() {
               }}
             >
               <div className="flex items-center gap-2">
-                <div className="rounded-lg bg-primary p-1.5">
-                  <Sparkles className="h-5 w-5 text-primary-foreground" />
-                </div>
+                <img src="/purdy-logo.svg" alt="purdy.ai" className="h-8 w-8" />
                 <span className="text-xl font-bold">purdy.ai</span>
               </div>
             </Button>
