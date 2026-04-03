@@ -6,6 +6,7 @@ import { parseStoredState } from "@/lib/storage"
 import { InterviewChat } from "@/components/interview-chat"
 import { PRDEditor } from "@/components/prd-editor"
 import { SettingsModal } from "@/components/settings-modal"
+import { ThemeLogo } from "@/components/theme-logo"
 import { ShareDialog, RenameDialog, ItemMenu } from "@/components/share-dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -325,7 +326,7 @@ export default function Home() {
               }}
             >
               <div className="flex items-center gap-2">
-                <img src="/purdy-logo.svg" alt="purdy.ai" className="h-8 w-8" />
+                <ThemeLogo />
                 <span className="text-xl font-bold">purdy.ai</span>
               </div>
             </Button>
