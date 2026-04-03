@@ -7,6 +7,7 @@ import { InterviewChat } from "@/components/interview-chat"
 import { PRDEditor } from "@/components/prd-editor"
 import { SettingsModal } from "@/components/settings-modal"
 import { ThemeLogo } from "@/components/theme-logo"
+import { PaaSWidget } from "@/components/paas-widget"
 import { ShareDialog, RenameDialog, ItemMenu } from "@/components/share-dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -683,6 +684,8 @@ export default function Home() {
           </div>
         )}
       </main>
+
+      <PaaSWidget />
     </div>
   )
 }
